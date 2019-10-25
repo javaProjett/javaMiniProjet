@@ -1,4 +1,4 @@
-package Controller; // TEST
+package Controller;
 
 import View.ViewHandler;
 import javafx.scene.control.Menu;
