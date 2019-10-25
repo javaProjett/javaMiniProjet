@@ -22,6 +22,9 @@ public class ViewMenuOption {
 
         btnVideoSetting = initButton(750, 85, "Video reglages", 120, 30, "Indie flower", 20);
         btnAudioSetting = initButton(950, 85, "Audio reglages", 120, 30, "Indie flower", 20);
+        root.getChildren().clear();
+        root.getChildren().add(btnVideoSetting);
+        root.getChildren().add(btnAudioSetting);
     }
 
     private Button initButton(int posX, int posY, String texteBtn, int tailleBtnW, int tailleBtnH, String police, int taillePolice) {
