@@ -1,4 +1,4 @@
-package Main;
+package Main; //TEST
 
 import View.ViewHandler;
 import javafx.application.Application;
