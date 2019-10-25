@@ -2,7 +2,7 @@
 ### Java template
 # Compiled class file
 *.class
-LaGueguerreDesLezards.iml
+*.iml
 .idea
 target
 
