@@ -1,6 +1,8 @@
 package View;
 import Controller.ControllerJeu;
 import Controller.ControllerMenu;
+import Controller.ControllerOption;
+import Outils.Music;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -32,13 +34,13 @@ public class ViewHandler extends Application {
             Scene scene = new Scene(root, screenWidth, screenHeight, Color.BLACK);
             model = new Menu();
             menu = new ViewMenu(model, root);
-            option = new ViewOption(model, root);
+            option = new ViewOption(root, this );
             jeu = new ViewJeu(model, root);
 
             controllerMenu = new ControllerMenu(this, model);
             //controllerJeu = new ControllerJeu(this);
             afficherMenuPrincipal();
-
+            Music.playMainMenuMusic();
             primaryStage.setTitle("NOTRE INTERFACE");
             primaryStage.setResizable(false);
             primaryStage.setFullScreen(true);
@@ -79,5 +81,8 @@ public class ViewHandler extends Application {
     public void setEventHandlerMenu(ControllerMenu controllerMenu){
             menu.setEvents(controllerMenu);
             option.setEvents(controllerMenu);
+            option.setVueOption();
     }
+
+
 }

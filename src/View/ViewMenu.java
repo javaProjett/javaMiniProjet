@@ -60,7 +60,7 @@ public class ViewMenu {
     }
      void setVueCompletMenu(){
          root.getChildren().clear();
-         final File file = new File("src/Sons/A.M.T. - Xenon.2.mp3");
+         final File file = new File("src/Asset/Sons/Xenon.2.mp3");
          final Media media = new Media(file.toURI().toString());
          final MediaPlayer mediaPlayer = new MediaPlayer(media);
          mediaPlayer.setAutoPlay(true);

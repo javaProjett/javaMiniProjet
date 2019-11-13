@@ -1,9 +1,14 @@
 package View;
 
 import Controller.ControllerMenu;
+import Controller.ControllerOption;
+import Outils.Music;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.control.Menu;
+import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -12,16 +17,20 @@ import javafx.stage.Screen;
 
 public class ViewOption {
     private Group root;
+    private ViewHandler viewOption;
     private ImageView imgBg;
     private Text audio, video, titreOption, menuPrincipal;
     private Menu model;
+    private Slider volumeSlider;
 
-    ViewOption(Menu model, Group root){
+    ViewOption(Group root, ViewHandler viewOption){
         this.root = root;
-        this.model = model;
+        //this.model = model;
+        this.viewOption = viewOption;
 
         initBackground();
         texteMenuOption();
+        btnVolume(160, 350);
     }
     private void initBackground() {
         imgBg = new ImageView("Asset/Images/crane.jpeg");
@@ -48,6 +57,14 @@ public class ViewOption {
         menuPrincipal.setFont(new Font("Arial", 25));
         menuPrincipal.setFill (Color.WHITE);
     }
+    private void btnVolume(int largeur, int longueur){
+        volumeSlider= new Slider(0,100,100);
+        volumeSlider.setBlockIncrement(10);
+        volumeSlider.setShowTickLabels(true);
+        volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> Music.setVolume(newValue.intValue() / 100.));
+        volumeSlider.setLayoutX(largeur);
+        volumeSlider.setLayoutY(longueur);
+    }
     void setVueOption(){
         root.getChildren().clear();
         root.getChildren().addAll(imgBg);
@@ -55,6 +72,8 @@ public class ViewOption {
         root.getChildren().add(video);
         root.getChildren().add(titreOption);
         root.getChildren().add(menuPrincipal);
+        root.getChildren().add(volumeSlider);
+        root.getStylesheets().add(getClass().getResource("../Asset/css/slider.css").toExternalForm());;
     }
 
     public Text getRetourMenu() {
@@ -63,4 +82,6 @@ public class ViewOption {
     void setEvents(ControllerMenu controllerMenu){
         menuPrincipal.setOnMouseClicked(controllerMenu);
     }
+
+
 }
