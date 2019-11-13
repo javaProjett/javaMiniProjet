@@ -1,11 +1,17 @@
 package Model;
 
 
+import javafx.geometry.Rectangle2D;
+import javafx.scene.image.ImageView;
+import javafx.stage.Screen;
+
 public class Jeu {
 
     private int vies;
     private int score;
     private int niveauEnCours;
+
+
     private final Niveau[] niveau = {
             new Niveau(100, 0),
             new Niveau(12, 1),
@@ -59,4 +65,7 @@ public class Jeu {
     public void setNiveauEnCours(int niveauEnCours) {
         this.niveauEnCours = niveauEnCours;
     }
+
+
+
 }

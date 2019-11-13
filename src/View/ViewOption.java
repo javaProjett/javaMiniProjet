@@ -19,7 +19,7 @@ public class ViewOption {
     private Group root;
     private ViewHandler viewOption;
     private ImageView imgBg;
-    private Text audio, video, titreOption, menuPrincipal;
+    private Text audio, titreOption, menuPrincipal;
     private Menu model;
     private Slider volumeSlider;
 
@@ -30,7 +30,7 @@ public class ViewOption {
 
         initBackground();
         texteMenuOption();
-        btnVolume(160, 350);
+        btnVolume(100, 630);
     }
     private void initBackground() {
         imgBg = new ImageView("Asset/Images/crane.jpeg");
@@ -44,9 +44,7 @@ public class ViewOption {
         titreOption.setFill (Color.WHITE);
         ///
         ///
-        video = new Text(150, 450,"Video");
-        video.setFont(new Font("Arial", 25));
-        video.setFill (Color.WHITE);
+
         ///
         audio = new Text(150, 600,"Audio");
         audio.setFont(new Font("Arial", 25));
@@ -69,7 +67,6 @@ public class ViewOption {
         root.getChildren().clear();
         root.getChildren().addAll(imgBg);
         root.getChildren().add(audio);
-        root.getChildren().add(video);
         root.getChildren().add(titreOption);
         root.getChildren().add(menuPrincipal);
         root.getChildren().add(volumeSlider);

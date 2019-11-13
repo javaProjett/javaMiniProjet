@@ -1,20 +1,19 @@
 package Controller;
 
+import View.ViewHandler;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 
 
 public class ControllerJeu {
-    public static final int BOTTOM = 390;
-    public static final int PADDLE_RIGHT = 250;
-    public static final int BALL_RIGHT = 280;
     protected int x;
     protected int y;
     protected double width;
     protected double height;
     protected Image image;
+    private ViewHandler viewHandler;
 
-
+/*
     public void setX(int x){
         this.x = x;
     }
@@ -41,4 +40,14 @@ public class ControllerJeu {
         return new Rectangle2D(x, y,
                 image.getWidth(), image.getHeight());
     }
+*/
+    public synchronized void moveLeft() {
+        viewHandler.moveLeft();
+    }
+
+    public synchronized void moveRight() {
+        viewHandler.moveRight();
+    }
+
+
 }

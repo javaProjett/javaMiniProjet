@@ -4,9 +4,11 @@ import Model.Ball;
 import Model.Briques;
 import Model.Jeu;
 import Model.Paddle;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.control.Menu;
 import javafx.scene.image.ImageView;
+import javafx.stage.Screen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +21,7 @@ public class ViewJeu {
     private Paddle paddle;
     private Ball ball;
     private Jeu jeu;
-
+    private ImageView imageDeFond;
 
 
 
@@ -42,7 +44,7 @@ public class ViewJeu {
 
         ballImage.setX(posX);
         ballImage.setY(980);
-
+        initBackground();
         afficherJeu();
 
     }
@@ -54,6 +56,7 @@ public class ViewJeu {
         root.getChildren().clear();
         brickListe = new ArrayList<>();
         int sautDeLigne = 50;
+        root.getChildren().addAll(imageDeFond);
         for (int i = 0; i < jeu.niveauEnCours().getNombreBriques(); i++) {
             if(i % 10 == 0){
                 sautDeLigne = sautDeLigne + 50;
@@ -73,6 +76,12 @@ public class ViewJeu {
         ballImage.setFitWidth(20);
         ballImage.setFitHeight(20);
 
+    }
+    private void initBackground() {
+        imageDeFond = new ImageView("Asset/Images/retro.jpg");
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getBounds();
+        imageDeFond.setFitHeight((int) primaryScreenBounds.getHeight());
+        imageDeFond.setFitWidth((int) primaryScreenBounds.getWidth());
     }
 
 }
