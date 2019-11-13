@@ -25,7 +25,7 @@ public class ViewJeu {
         this.root = root;
         this.model = model;
         afficherJeu();
-
+        setVueJeu();
     }
 
     void setVueJeu(){
