@@ -44,11 +44,11 @@ public class ViewOption {
         titreOption.setFill (Color.WHITE);
         ///
         ///
-        video = new Text(150, 450,"Video");
+        video = new Text(150, 450,"Audio");
         video.setFont(new Font("Arial", 25));
         video.setFill (Color.WHITE);
         ///
-        audio = new Text(150, 600,"Audio");
+        audio = new Text(150, 600,"Video");
         audio.setFont(new Font("Arial", 25));
         audio.setFill (Color.WHITE);
 
