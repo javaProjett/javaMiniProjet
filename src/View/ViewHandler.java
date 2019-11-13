@@ -1,7 +1,11 @@
 package View;
 import Controller.ControllerJeu;
+import Controller.ControllerKeyboard;
 import Controller.ControllerMenu;
 import Controller.ControllerOption;
+import Model.Jeu;
+import Model.Option;
+import Model.Paddle;
 import Outils.Music;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -19,19 +23,22 @@ public class ViewHandler extends Application {
         private final static int WIDTH = 800;
 
         private Stage primaryStage;
+        private Group root;
+        private Scene scene;
         private ViewMenu menu;
         private ViewOption option;
         private ViewJeu jeu;
-        private ControllerMenu controllerMenu;
-        private ControllerJeu controllerJeu;
         private Menu model;
-        private Group root;
+        private Option options;
+        private Jeu jeux;
         private ImageView paddle;
 
 
-        @Override
+
+    @Override
         public void start(Stage primaryStage) {
             this.primaryStage = primaryStage;
+
 
             int screenWidth = (int) Screen.getPrimary().getBounds().getWidth();
             int screenHeight = (int) Screen.getPrimary().getBounds().getHeight();
@@ -40,9 +47,10 @@ public class ViewHandler extends Application {
             model = new Menu();
             menu = new ViewMenu(model, root);
             option = new ViewOption(root, this );
-            jeu = new ViewJeu(model, root);
-
-            controllerMenu = new ControllerMenu(this, model);
+            jeu = new ViewJeu(this, root);
+            jeux = new Jeu();
+            ControllerMenu controllerMenu = new ControllerMenu(this, model);
+            ControllerOption controllerOption = new ControllerOption(this, options);
             //controllerJeu = new ControllerJeu(this);
             afficherMenuPrincipal();
             Music.playMainMenuMusic();
@@ -50,13 +58,13 @@ public class ViewHandler extends Application {
             primaryStage.setResizable(false);
             primaryStage.setFullScreen(true);
             primaryStage.setScene(scene);
-
             primaryStage.show();
         }
 
         public void afficherMenuPrincipal(){
 
             menu.setVueCompletMenu();
+            ControllerKeyboard controllerKeyboard = new ControllerKeyboard(this, jeux);
         }
 
     public void moveLeft() {

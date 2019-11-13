@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ControllerKeyboard;
 import Model.Ball;
 import Model.Briques;
 import Model.Jeu;
@@ -15,20 +16,20 @@ import java.util.List;
 
 public class ViewJeu {
     private Group root;
-    private Menu model;
+    private ViewHandler viewHandler;
     private ImageView brickImage, skinPaddle, ballImage;
     private List<ImageView> brickListe;
     private Paddle paddle;
     private Ball ball;
     private Jeu jeu;
     private ImageView imageDeFond;
+    private double vitesse =10;
 
 
-
-    ViewJeu(Menu model, Group root){
+    ViewJeu(ViewHandler viewHandler, Group root){
         jeu = new Jeu();
         this.root = root;
-        this.model = model;
+        this.viewHandler = viewHandler;
 
 
         brickImage = new ImageView(Briques.laBrick);
@@ -48,8 +49,6 @@ public class ViewJeu {
         afficherJeu();
 
     }
-
-
 
 
     public void afficherJeu(){
@@ -84,4 +83,15 @@ public class ViewJeu {
         imageDeFond.setFitWidth((int) primaryScreenBounds.getWidth());
     }
 
+    public void moveBareLeft() {
+        skinPaddle.setX(skinPaddle.getX()-vitesse);
+    }
+
+    public void moveBareRight() {
+        skinPaddle.setX(skinPaddle.getX()+vitesse);
+    }
+
+    public void setKeyboardController(ControllerKeyboard controllerKeyboard) {
+        root.getScene().setOnKeyPressed(controllerKeyboard);
+    }
 }

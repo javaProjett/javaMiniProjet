@@ -30,7 +30,7 @@ public class ViewOption {
 
         initBackground();
         texteMenuOption();
-        btnVolume(100, 630);
+        btnVolume(160, 630);
     }
     private void initBackground() {
         imgBg = new ImageView("Asset/Images/crane.jpeg");
