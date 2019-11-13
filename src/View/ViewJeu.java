@@ -20,16 +20,14 @@ public class ViewJeu {
     private Ball ball;
     private Jeu jeu;
 
+
+
+
     ViewJeu(Menu model, Group root){
         jeu = new Jeu();
         this.root = root;
         this.model = model;
-        afficherJeu();
-        setVueJeu();
-    }
 
-    void setVueJeu(){
-        root.getChildren().clear();
 
         brickImage = new ImageView(Briques.laBrick);
         skinPaddle = new ImageView(Paddle.paddle);
@@ -37,16 +35,19 @@ public class ViewJeu {
 
         brickImage.setX(-200);
         brickImage.setY(150);
-        skinPaddle.setX(-210);
-        skinPaddle.setY(155);
-        ballImage.setX(-220);
-        ballImage.setY(160);
 
-        root.getChildren().add(brickImage);
-        root.getChildren().add(skinPaddle);
-        root.getChildren().add(ballImage);
+        skinPaddle.setX(800);
+        skinPaddle.setY(1000);
+        int posX = 800;
+
+        ballImage.setX(posX);
+        ballImage.setY(980);
+
+        afficherJeu();
 
     }
+
+
 
 
     public void afficherJeu(){
@@ -63,18 +64,14 @@ public class ViewJeu {
             brickListe.get(i).setFitWidth(100);
             brickListe.get(i).setFitHeight(25);
             root.getChildren().add(brickListe.get(i));
-
-           // skinPaddle.add.
-            //brickListe.add(jeu.niveauEnCours().getBriquesList().get(i).getSkin());
-
-            //root.getChildren().add(skinPaddle);
-            //root.getChildren().add(ballImage);
-
-
-
-
-
         }
+
+        root.getChildren().add(skinPaddle);
+        root.getChildren().add(ballImage);
+        skinPaddle.setFitWidth(100);
+        skinPaddle.setFitHeight(25);
+        ballImage.setFitWidth(20);
+        ballImage.setFitHeight(20);
 
     }
 

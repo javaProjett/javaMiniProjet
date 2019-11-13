@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -14,6 +15,9 @@ import javafx.stage.Stage;
 
 
 public class ViewHandler extends Application {
+
+        private final static int WIDTH = 800;
+
         private Stage primaryStage;
         private ViewMenu menu;
         private ViewOption option;
@@ -22,6 +26,7 @@ public class ViewHandler extends Application {
         private ControllerJeu controllerJeu;
         private Menu model;
         private Group root;
+        private ImageView paddle;
 
 
         @Override
@@ -54,6 +59,17 @@ public class ViewHandler extends Application {
             menu.setVueCompletMenu();
         }
 
+    public void moveLeft() {
+        if (paddle.getX() > -20) {
+            paddle.setX(paddle.getX() - 3);
+        }
+    }
+
+    public void moveRight() {
+        if (paddle.getX() < WIDTH - 23) {
+            paddle.setX(paddle.getX() + 3);
+        }
+    }
 
 
     //Getters et Setters
