@@ -26,7 +26,6 @@ public class ViewJeu {
         this.model = model;
         afficherJeu();
         setVueJeu();
-
     }
 
     void setVueJeu(){
@@ -53,27 +52,22 @@ public class ViewJeu {
     public void afficherJeu(){
         root.getChildren().clear();
         brickListe = new ArrayList<>();
-        paddle = new Paddle(Paddle.paddle);
-        //ball = new Ball(Ball.ball);
-
         int sautDeLigne = 50;
         for (int i = 0; i < jeu.niveauEnCours().getNombreBriques(); i++) {
             if(i % 10 == 0){
                 sautDeLigne = sautDeLigne + 50;
             }
             brickListe.add(jeu.niveauEnCours().getBriquesList().get(i).getSkin());
-
-
             brickListe.get(i).setX((150 * (i % 10))+150);
             brickListe.get(i).setY(sautDeLigne);
             brickListe.get(i).setFitWidth(100);
             brickListe.get(i).setFitHeight(25);
             root.getChildren().add(brickListe.get(i));
 
-            //skinPaddle.
+           // skinPaddle.add.
             //brickListe.add(jeu.niveauEnCours().getBriquesList().get(i).getSkin());
 
-           // root.getChildren().add(skinPaddle);
+            //root.getChildren().add(skinPaddle);
             //root.getChildren().add(ballImage);
 
 
