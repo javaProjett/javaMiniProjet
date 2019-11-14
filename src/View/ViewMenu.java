@@ -38,7 +38,7 @@ public class ViewMenu {
         imgBg.setFitWidth((int) primaryScreenBounds.getWidth());
     }
     private void texteMenu(){
-        titre = new Text(250, 100, "LA MUERTE");
+        titre = new Text(250, 100, "BREAK OUT");
         titre.setFont(new Font("Arial", 100));
         titre.setFill (Color.WHITE);
         ///

@@ -11,7 +11,7 @@ public class Ball extends ControllerJeu {
     public final static String ball = "Asset/Images/sprites/ball.png";
     private final ImageView ballDuPaddle;
 
-    public Ball(int x, int y){
+    public Ball(int x, int y, int speed, int direction){
         ballDuPaddle = new ImageView(ball);
         ballDuPaddle.setX(x);
         ballDuPaddle.setY(y);
@@ -31,17 +31,6 @@ public class Ball extends ControllerJeu {
     public void deplacement()
     {
         ballDuPaddle.setY(ballDuPaddle.getY()-10);
-        //x += xdir;
-        //y += ydir;
-/*
-        if (x == 0) {
-            setXDir(1);
-        }
-
-
-        if (y == 0) {
-            setYDir(1);
-        }*/
     }
 
     public int getX(){
@@ -56,25 +45,4 @@ public class Ball extends ControllerJeu {
         return ballDuPaddle.getX() + " " + ballDuPaddle.getY();
     }
 
-/*
-    public void resetState()
-    {
-        x = 230;
-        y = 355;
-    }
-
-    public void setXDir(int x)
-    {
-        xdir = x;
-    }
-
-    public void setYDir(int y)
-    {
-        ydir = y;
-    }
-
-    public int getYDir()
-    {
-        return ydir;
-    }*/
 }

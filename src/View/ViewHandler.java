@@ -1,11 +1,9 @@
 package View;
-import Controller.ControllerJeu;
 import Controller.ControllerKeyboard;
 import Controller.ControllerMenu;
 import Controller.ControllerOption;
 import Model.Jeu;
 import Model.Option;
-import Model.Paddle;
 import Outils.Music;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -27,10 +25,10 @@ public class ViewHandler extends Application {
         private Scene scene;
         private ViewMenu menu;
         private ViewOption option;
-        private ViewJeu jeu;
+        private ViewJeu viewJeu;
         private Menu model;
         private Option options;
-        private Jeu jeux;
+        private Jeu jeu;
         private ImageView paddle;
 
 
@@ -47,8 +45,8 @@ public class ViewHandler extends Application {
             model = new Menu();
             menu = new ViewMenu(model, root);
             option = new ViewOption(root, this );
-            jeu = new ViewJeu(this, root);
-            jeux = new Jeu();
+            viewJeu = new ViewJeu(this, root);
+            jeu = new Jeu();
             ControllerMenu controllerMenu = new ControllerMenu(this, model);
             ControllerOption controllerOption = new ControllerOption(this, options);
             //controllerJeu = new ControllerJeu(this);
@@ -64,7 +62,7 @@ public class ViewHandler extends Application {
         public void afficherMenuPrincipal(){
 
             menu.setVueCompletMenu();
-            ControllerKeyboard controllerKeyboard = new ControllerKeyboard(this, jeux);
+            ControllerKeyboard controllerKeyboard = new ControllerKeyboard(this, jeu);
         }
 
     public void moveLeft() {
@@ -90,14 +88,14 @@ public class ViewHandler extends Application {
     public ViewOption getOption() {
             return option;
         }
-    public ViewJeu getJeu(){
-            return jeu;
+    public ViewJeu getViewJeu(){
+            return viewJeu;
     }
     public void setVueCompletMenu(){
             menu.setVueCompletMenu();
     }
     public void setVueJeu(){
-            jeu.afficherJeu();
+            viewJeu.afficherJeu();
     }
     public void setVueOption(){
             option.setVueOption();
